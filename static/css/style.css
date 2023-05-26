@@ -1,0 +1,248 @@
+
+*{
+        box-sizing: border-box;
+        margin: 0;
+        font-family: 'Noto Sans Siddham', sans-serif;
+        transition: all 0.3s ease-in-out;   
+    }
+    :root{
+        --bg-color-dark:  rgb(43,48,62);
+        --shadow-dark:  rgb(45, 53, 83);
+        --bg-color-light: rgb(89, 89, 122);
+        --orange: #FF9800;
+    }
+    a{
+        background-color: initial;
+        text-decoration: none;
+        position: relative;
+    }
+    .orangespan{
+        color: var(--orange);
+    }
+    section{
+        width: 100vw;
+        height: 100vh;
+    }
+    
+    /* Chatbot Section start */
+    .chatbot-cont{
+        display: flex;
+        background-color: var(--bg-color-dark);
+        align-items: center;
+        padding: 4rem 0px;
+    }
+    .chatbot-text-cont {
+        width: 20%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    .texts{
+        color: rgb(247, 235, 235);
+        display: flex;
+        flex-direction: column;
+    }
+    .links{
+        width: 50%;
+        height: fit-content;
+        border-radius: 10px;
+        z-index: 3;
+        display: flex;
+        justify-content: space-between;
+        align-content: center;
+        padding: 0.1rem 0.5rem;
+    }
+    .links > a {
+        background-color: var(--bg-color-dark);
+        color: white;
+        padding: 0px 7px;
+        border-radius: 10px;
+        box-shadow: 2px 4px 1px 2px var(--shadow-dark);
+    }
+    .links > a:hover::before {
+        display: grid;
+        place-content: center;
+        display: block;
+        position: absolute;
+        background-color: rgba(217, 204, 204, 0.4);
+        color: black;
+        padding: 10px 10px 2px;
+        border-radius: 5px;
+        width: max-content;
+        font-size: 12px;
+        top:-20px;
+        position: absolute;
+      }
+      .profile-btn:hover::before{
+        content: "Profile";
+      }
+      .logout-btn:hover::before{
+        content: "Logout";
+      }
+      .links-icon{
+        transform: translateY(10px);
+      }
+    .chatbot-text-cont> h2{
+        z-index: 3;
+        color: white;
+        font-size: 50px;
+    }
+    .chatbot{
+        width: 60%;
+        height: 100%;
+        background-color: white;
+        border-radius: 10px;
+        z-index: 3;
+    }
+    .chat{
+        border-radius: 10px;
+    }
+    .random-div{
+        position: absolute;
+        background-color:var(--orange);
+        width:100px;
+        height: 100px;
+        border-radius: 52% 48% 42% 58% / 23% 57% 43% 77% ;
+        z-index: 2;
+        }
+        .random-div:first-child{
+            top: 0.01%;
+            right: 10%;
+            rotate: 30deg;
+        }
+        .last{
+            width:400px;
+            height: 400px;
+            bottom: 1%;
+            right: 20%;
+        }
+        .random-div:nth-child(3){
+            width:200px;
+            height: 200px;
+            bottom: 1%;
+            left: 3%;
+            rotate: 30deg;
+        }
+        .random-div:nth-child(2){
+            top: 30%;
+            left: 20%;
+            rotate: 70deg;
+        }
+        .random-div:nth-child(4){
+            width:150px;
+            height: 150px;
+            bottom: 1%;
+            left: 10%;
+            rotate: 180deg;
+            border-radius: 85% 15% 60% 40% / 67% 91% 9% 33% ;background-color: var(--bg-color-light);
+        }
+        .random-div:nth-child(5){
+            width:150px;
+            height: 150px;
+            bottom: 30%;
+            left: -4%;
+            border-radius: 85% 15% 60% 40% / 67% 91% 9% 33% ;background-color: var(--bg-color-light);
+        }
+        @media (max-width: 700px) {
+            .random-div{
+                position: absolute;
+                background-color:var(--orange);
+                width:70px;
+                height: 70px;
+                border-radius: 52% 48% 42% 58% / 23% 57% 43% 77% ;
+                z-index: 2;
+                }
+                .random-div:first-child{
+                    top: 0.01%;
+                    right: 10%;
+                    rotate: 30deg;
+                }
+                .last{
+                    width:200px;
+                    height: 200px;
+                    bottom: -10%;
+                    right: 20%;
+                }
+                .random-div:nth-child(3){
+                    width:130px;
+                    height: 130px;
+                    bottom: 1%;
+                    left: 3%;
+                    rotate: 30deg;
+                }
+                .random-div:nth-child(2){
+                    top: 30%;
+                    left: 20%;
+                    rotate: 70deg;
+                }
+                .random-div:nth-child(4){
+                    width:100px;
+                    height: 100px;
+                    bottom: 1%;
+                    left: 10%;
+                    rotate: 180deg;
+                    border-radius: 85% 15% 60% 40% / 67% 91% 9% 33% ;background-color: var(--bg-color-light);
+                }
+                .random-div:nth-child(5){
+                    width:120px;
+                    height: 120px;
+                    bottom: 30%;
+                    left: -4%;
+                    border-radius: 85% 15% 60% 40% / 67% 91% 9% 33% ;background-color: var(--bg-color-light);
+                }
+          }
+
+    /* Chatbot Section ends */
+
+
+
+
+
+
+
+
+    /* About Section starts */
+        
+    /* About Section ends */
+
+    /* Login Section starts */
+    .login-cont{
+        padding:0px;
+    }
+    .github-btn:hover::before{
+        content: "Guthub project-Link";
+    }
+    .login{
+            display:flex;
+            align-items: center;
+    }
+    .login-con{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        padding-top:7rem;
+    }
+    .login-form{
+        margin-top: -2rem;
+    }
+    input{
+        padding-top: 1rem;
+    }
+    .submit-btn{
+        background-color: var(--bg-color-light);
+        color: aliceblue;
+    }
+    .login-page{
+        overflow-X:hidden;  
+    }
+    /* Login Section ends */
+
+    /* About Section starts */
+        
+    /* About Section ends */
+
+
+    

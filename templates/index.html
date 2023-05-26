@@ -1,0 +1,659 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat javascript Chatbot</title>
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'css/about.css' %}" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!-- google links -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />   
+<link href="https://fonts.googleapis.com/css2?family=Foldit&family=Ubuntu&display=swap" rel="stylesheet">
+</head>
+<style>
+    .chatbot-text-cont{
+        width: 30%;
+        padding-top:-0rem;
+        display:flex;
+        flex-direction:column;
+        justify-content:space-between;
+    }
+    
+.explained_cont{
+   
+    width: 100%;
+    }
+    .explain-cont{
+      width: 100%;
+      height: 100%;
+      display: grid;
+
+      padding: 0px 2rem;
+      grid-template-rows: 1fr 6fr;
+    }
+  .header_explain{
+       display: flex;
+       justify-content: center;
+       width: 100%;
+       align-items: center;
+      
+  }
+  .cont_explain{
+    width: 100%;
+    display: grid;
+    line-height: 25px;
+    gap: 1rem;
+    grid-template-columns: repeat(2,1fr);
+   
+  }
+  .content_explained{
+    grid-gap: 1rem;
+  }
+  .content_explained h4{
+    font-size: 15px;
+    color: var(--bg-color-dark);
+    text-transform: capitalize;
+  }
+  .content_explained:nth-child(odd){
+   border-right: 2px solid var(--orange); 
+  
+  }
+  .content_header {
+    display: grid;
+    place-content: center;
+    width: 80%;
+  }
+  .content_header h3{
+        font-size: 25px;
+        border-bottom: 3px solid var(--bg-color-dark);
+        padding-bottom: 1rem;
+        
+  }
+</style>
+<body>
+    <section id="chatbot" class="chatbot-cont">
+        <div class="chatbot-text-cont" >
+            <div class="texts">
+            <div class="random-div"></div>
+                <div class="random-div"></div>
+                <div class="random-div"></div>
+                <div class="random-div"></div>
+                <div class="random-div"></div>
+                <div class="random-div last"></div> 
+                <h2  class="chatbot-text-header" style="font-size:40px; line-height: 50px;">Python Chatbot</h2>
+                <h4 id="chatbot-text-header">Ask about any&nbsp;<span class="orangespan">Topic</span>&nbsp;</h4>
+            </div>
+            <div class="chatbots" id="chatbots">
+                <div id="dialogflow" class="">dialogflow</div>
+                <div id="jokes"  class="">Jokes</div>
+                <div id="mycreated"  class="active">My Created</div>
+            </div>
+            <div class="links">
+               <a href="chatbot/profile" class="profile-btn"><span class="material-symbols-outlined links-icon">
+                account_circle
+                </span></a>
+               <a href="/signout" class="logout-btn"><span class="material-symbols-outlined links-icon" aria-label="logout">
+                logout
+                </span></a>
+            </div>
+        </div>
+        <div class="chatbot myBot" id="chatbott">
+            <div id="chati active" class="interface">
+                <div class="chat_header">
+                    Chatbot with <span class="orangespan">&nbsp; Knowledge &nbsp;</span>  Graph
+                </div>
+                <div id="chat_body" class="chat_body">
+                    <div class="user"><div id="chatRes" class="chatRes">hi</div></div>
+                    <div class="user  aires"><div id="chatIpt" class="chatIpt">ho</div></div>
+                </div>
+                <div class="chat_form">
+                   <form  class="chat_Form" id="myForm">
+                         <input  class="chat_input" type="text" id="inputField" name="inputField">
+                         <button id="chat_send_btn" class="chat_send_btn"  type="submit">
+                            <span   class="material-symbols-outlined">
+                                send
+                                </span>
+                         </button>
+                         
+                   </form>
+                </div>
+            </div>
+           </div>
+        </section>
+        <section id="about" style="height:min-content" class="about_section">
+            <div class="about-cont">
+                <div class="about_text">
+                 <div class="about_header" >
+                     <h2 style="font-size: xx-large;"><span class="darkspan">About</span>   <span class="orangespan"> Project</span></h2>
+                 </div>
+                 <style>
+                    
+
+                 </style>
+                 <div class="about_content">The project is a chatbot developed using 
+                    <a href="https://dialogflow.cloud.google.com/#/agent/mychatagent-cgdh/knowledgeBases">Dialogflow</a> 
+                    and <a href="https://www.djangoproject.com/">Django</a>. The chatbot can answer all Javascript questions and can be accessed only by authenticated users. The users need to log in or register using the authentication page, and only after successful authentication, they can access the chatbot. The chatbot is integrated with Django using the Django REST framework as the frontend which requires
+                    <a href="https://www.freecodecamp.org/news/html-css-and-javascript-explained-for-beginners/">html5, css and javascript</a> and uses 
+                    <a href="https://www.postgresql.org/download/windows/">PostgreSQL</a>  as the database to store user data. The project can be further enhanced by adding more functionalities to the chatbot and integrating it with other technologies.</div>
+                </div>
+                <div class="about_stacks">
+                    <div class="about_header" >
+                        <h2 style="font-size: xx-large;"><span class="darkspan">Stacks</span>   <span class="orangespan"> Used</span></h2>
+                    </div>
+                    <div class="about_content stacks">
+                        <div class="framework">
+                            <div class="icon_cont">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" id="django"><path fill="#EFEFEF" d="M11.532 34.802c6.645-1.919 12.203.206 15.405-.719s9.396-4.708 5.142-19.44S18.155.363 14.632 1.38c-16.493 4.763-14.869 36.821-3.1 33.422z"></path><path fill="#A4AFC1" d="M8.505 10.307 9.92 8.892l.707.707-1.415 1.415zM4.44 14.373l1.414-1.415.707.707-1.415 1.415zM4.44 9.422l.706-.707 1.415 1.415-.707.707zM28.162 30.5c-.827 0-1.5-.673-1.5-1.5s.673-1.5 1.5-1.5 1.5.673 1.5 1.5-.673 1.5-1.5 1.5zm0-2a.5.5 0 1 0 .002 1.002.5.5 0 0 0-.002-1.002z"></path><path fill="#2FDF84" d="m26.25 12.428-3.581-.001v7.268c0 3.203-.162 4.423-.674 5.474-.488 1.028-1.256 1.698-2.837 2.463l3.326 1.626c1.581-.812 2.349-1.554 2.93-2.725.628-1.219.837-2.63.837-5.57v-8.535z"></path><path fill="#F3F3F1" d="M20.25 23.769V6.758h-3.644v5.604a5.783 5.783 0 0 0-1.585-.191c-3.81 0-6.271 2.434-6.271 6.181 0 3.89 2.319 5.919 6.768 5.919 1.49-.001 2.863-.144 4.732-.502zm-7.785-5.489c0-2.005 1.064-3.15 2.91-3.15h-.004l.077-.001c.414 0 .812.07 1.157.192v5.894c-.52.072-.852.096-1.254.096-1.868-.001-2.886-1.074-2.886-3.031z"></path><path fill="#2FDF84" d="M22.669 6.762h3.581v3.777h-3.581z"></path><path fill="#00B871" d="M21.407 27.632c1.582-.765 2.349-1.435 2.837-2.463.512-1.052.674-2.271.674-5.474v-7.268h-2.25v7.268c0 3.203-.162 4.423-.674 5.474-.488 1.028-1.256 1.698-2.837 2.463l3.326 1.626c.39-.201.73-.397 1.031-.596l-2.107-1.03z"></path><path fill="#D5DBE1" d="M11 18.352c0-3.34 1.958-5.631 5.081-6.091a6.238 6.238 0 0 0-1.061-.09c-3.81 0-6.271 2.434-6.271 6.181 0 3.89 2.319 5.919 6.768 5.919.471 0 .934-.02 1.401-.051C13.041 23.964 11 21.979 11 18.352z"></path><path fill="#D5DBE1" d="M17.602 21.31c.402 0 .734-.023 1.254-.096V15.32a3.504 3.504 0 0 0-1.157-.192l-.077.001h.004c-.406 0-.766.065-1.094.172.024.008.051.011.074.019v5.854c.301.082.627.136.996.136zm-.331-9.139c.592 0 1.041.048 1.585.191V6.758h-2.25v5.44c.217-.017.438-.027.665-.027z"></path><path fill="#00B871" d="M22.669 6.762h2.25v3.777h-2.25z"></path><path d="M22.482 30.008a.745.745 0 0 1-.329-.076l-3.325-1.625a.749.749 0 0 1 .003-1.349c1.422-.688 2.072-1.239 2.486-2.11.462-.948.602-2.15.602-5.152v-7.268a.75.75 0 0 1 .75-.75h3.581c.414 0 .75.337.75.751v8.535c0 3.086-.232 4.579-.92 5.914-.658 1.327-1.572 2.185-3.255 3.048a.763.763 0 0 1-.343.082zm-1.705-2.419 1.691.827c1.183-.65 1.796-1.256 2.272-2.217.568-1.104.759-2.422.759-5.237v-7.785l-2.081-.001v6.518c0 3.306-.168 4.608-.749 5.803-.401.846-.972 1.49-1.892 2.092z"></path><path d="M15.518 25.021C10.67 25.021 8 22.652 8 18.352c0-4.146 2.821-6.931 7.021-6.931.305 0 .576.013.836.041V6.758a.75.75 0 0 1 .75-.75h3.644a.75.75 0 0 1 .75.75V23.77c0 .36-.256.669-.609.737-1.912.365-3.324.514-4.874.514zm-.497-12.1c-3.405 0-5.521 2.081-5.521 5.431 0 3.478 1.969 5.168 6.018 5.168 1.282 0 2.472-.11 3.982-.376V7.508h-2.144v4.854a.748.748 0 0 1-.94.726 4.994 4.994 0 0 0-1.395-.167zm.332 9.139c-2.277 0-3.637-1.413-3.637-3.78 0-2.404 1.399-3.897 3.653-3.9h.003c-.01-.001.07-.001.077-.001.483 0 .97.081 1.406.234a.75.75 0 0 1 .501.708v5.895a.75.75 0 0 1-.647.743 9.339 9.339 0 0 1-1.356.101zm.023-6.181c-1.434 0-2.16.808-2.16 2.4 0 1.556.679 2.28 2.137 2.28.177 0 .336-.005.504-.017v-4.636c-.143-.02-.289-.019-.434-.029-.016.002-.031.002-.047.002zM26.25 11.289h-3.581a.75.75 0 0 1-.75-.75V6.762a.75.75 0 0 1 .75-.75h3.581a.75.75 0 0 1 .75.75v3.777a.75.75 0 0 1-.75.75zm-2.831-1.5H25.5V7.512h-2.081v2.277z"></path></svg>
+                            </div>
+                            <h3 class="icon_header">
+                                django
+                            </h3>
+                        </div>
+                        <div class="framework">
+                            <div class="icon_cont">
+                                <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24" id="python"><path fill="#F2BB30" d="M20.699,17.748c1.666,0,2.282-1.162,2.86-2.904c0.6-1.795,0.574-3.52,0-5.818c-0.413-1.655-1.194-2.904-2.86-2.904h-2.148v2.54c0,1.972-1.672,3.633-3.579,3.633H9.252c-1.564,0-2.86,1.339-2.86,2.908v5.454c0,1.553,1.35,2.464,2.86,2.908c1.811,0.53,3.552,0.626,5.721,0c1.441-0.418,2.861-1.26,2.861-2.908v-2.181h-5.717v-0.729H20.699L20.699,17.748z"></path><path fill="#35668F" d="M3.444,17.749H5.41v-2.614c0-1.892,1.634-3.557,3.579-3.557h5.721c1.591,0,2.86-1.312,2.86-2.909V3.209c0-1.554-1.307-2.717-2.86-2.979c-1.918-0.316-4.002-0.3-5.721,0.006l0.001-0.001C6.568,0.663,6.129,1.558,6.129,3.213v2.18h5.727v0.73H3.98c-1.667,0-3.124,1.002-3.578,2.905c-0.525,2.18-0.547,3.54,0,5.818C0.808,16.538,1.779,17.749,3.444,17.749L3.444,17.749z"></path><path fill="#D3A32A" d="M12,12.295H9.252c-1.564,0-2.86,1.339-2.86,2.908v5.454c0,1.553,1.35,2.464,2.86,2.908c0.912,0.267,1.807,0.424,2.748,0.434V12.295L12,12.295z"></path><path fill="#2E597C" d="M11.827,0c-0.994,0-1.964,0.081-2.839,0.236l0.001-0.001C6.568,0.663,6.129,1.558,6.129,3.213v2.18h5.727v0.73H3.98c-1.667,0-3.124,1.002-3.578,2.905c-0.26,1.081-0.397,1.961-0.402,2.85v0.101c0.005,0.872,0.136,1.761,0.402,2.867c0.406,1.692,1.377,2.903,3.042,2.903H5.41v-2.614c0-1.892,1.634-3.557,3.579-3.557H12V0.001C11.942,0,11.885,0,11.827,0L11.827,0z"></path><polygon fill="#FFF" points="18.231 7.357 18.232 7.357 18.232 7.353"></polygon><path fill="#FFF" d="M15.332 19.929c.594 0 1.077.488 1.077 1.088 0 .606-.482 1.093-1.077 1.093-.59 0-1.077-.493-1.077-1.093C14.261 20.411 14.744 19.929 15.332 19.929zM8.63 3.936c-.594 0-1.076-.488-1.076-1.088C7.56 2.243 8.036 1.756 8.63 1.756c.59 0 1.077.493 1.077 1.093C9.707 3.448 9.225 3.936 8.63 3.936L8.63 3.936z"></path><path fill="#DEDEDE" d="M8.63 1.756c-.594 0-1.071.487-1.076 1.093 0 .6.482 1.088 1.076 1.088l0 0V1.756L8.63 1.756 8.63 1.756zM15.332 19.929c-.594 0-1.071.487-1.076 1.093 0 .6.482 1.088 1.076 1.088l0 0V19.929L15.332 19.929 15.332 19.929z"></path></svg>
+                            </div>
+                            <h3 class="icon_header">
+                                python
+                            </h3>
+                        </div>
+                        <div class="framework">
+                            <div class="icon_cont">
+                                <svg xmlns="http://www.w3.org/2000/svg" aria-label="JavaScript" viewBox="0 0 512 512" id="javascript"><rect width="512" height="512" fill="#f7df1e" rx="15%"></rect><path d="m324,370c10,17 24,29 47,29 20,0 33,-10 33,-24 0,-16 -13,-22 -35,-32l-12,-5c-35,-15 -58,-33 -58,-72 0,-36 27,-64 70,-64 31,0 53,11 68,39l-37,24c-8,-15 -17,-21 -31,-21 -14,0 -23,9 -23,21 0,14 9,20 30,29l12,5c41,18 64,35 64,76 0,43 -34,67 -80,67 -45,0 -74,-21 -88,-49zm-170,4c8,13 14,25 31,25 16,0 26,-6 26,-30V203h48v164c0,50 -29,72 -72,72 -39,0 -61,-20 -72,-44z"></path></svg>
+                            </div>
+                            <h3 class="icon_header">
+                                javascript
+                            </h3>
+                        </div>
+                        <div class="framework">
+                            <div class="icon_cont">
+                               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" id="bootstrap"><path fill="#5B4282" d="M9.531 112.586h4.161c1.896 0 3.273.27 4.129.81.857.54 1.285 1.398 1.285 2.575 0 .799-.188 1.454-.563 1.966s-.874.82-1.496.924v.091c.848.189 1.459.543 1.834 1.061s.563 1.207.563 2.067c0 1.22-.44 2.171-1.322 2.854-.881.683-2.078 1.024-3.59 1.024h-5.001v-13.372zm2.835 5.296h1.646c.768 0 1.325-.119 1.669-.356.345-.238.517-.631.517-1.18 0-.512-.187-.879-.562-1.102s-.968-.334-1.779-.334h-1.491v2.972zm0 2.25v3.485h1.848c.78 0 1.356-.149 1.729-.448s.558-.756.558-1.372c0-1.109-.793-1.665-2.378-1.665h-1.757zM34.252 119.254c0 2.213-.549 3.915-1.646 5.104s-2.67 1.784-4.719 1.784-3.622-.595-4.719-1.784c-1.098-1.189-1.646-2.896-1.646-5.122s.55-3.925 1.651-5.099 2.678-1.761 4.733-1.761 3.626.592 4.715 1.774c1.087 1.183 1.631 2.885 1.631 5.104zm-9.758 0c0 1.494.283 2.619.851 3.375.567.756 1.414 1.134 2.542 1.134 2.262 0 3.393-1.503 3.393-4.509 0-3.012-1.125-4.518-3.375-4.518-1.128 0-1.979.379-2.552 1.139s-.859 1.885-.859 3.379zM49.161 119.254c0 2.213-.549 3.915-1.646 5.104s-2.67 1.784-4.719 1.784-3.622-.595-4.719-1.784c-1.098-1.189-1.646-2.896-1.646-5.122s.55-3.925 1.651-5.099 2.678-1.761 4.733-1.761 3.626.592 4.715 1.774c1.086 1.183 1.631 2.885 1.631 5.104zm-9.759 0c0 1.494.283 2.619.851 3.375.567.756 1.414 1.134 2.542 1.134 2.262 0 3.393-1.503 3.393-4.509 0-3.012-1.125-4.518-3.375-4.518-1.128 0-1.979.379-2.552 1.139s-.859 1.885-.859 3.379zM57.09 125.958h-2.835v-11.012h-3.631v-2.36h10.097v2.36h-3.631v11.012zM70.671 122.245c0 1.208-.434 2.159-1.303 2.854-.869.695-2.078 1.043-3.626 1.043-1.427 0-2.689-.269-3.786-.805v-2.634c.902.402 1.666.686 2.291.851s1.196.247 1.715.247c.622 0 1.099-.119 1.431-.356.333-.238.499-.591.499-1.061 0-.262-.073-.495-.219-.7-.146-.204-.361-.401-.645-.59s-.861-.491-1.733-.905c-.817-.384-1.43-.753-1.838-1.107-.409-.354-.735-.765-.979-1.234-.244-.47-.366-1.019-.366-1.646 0-1.183.401-2.113 1.203-2.79s1.91-1.015 3.325-1.015c.695 0 1.358.082 1.989.247.631.165 1.291.396 1.98.695l-.915 2.204c-.713-.292-1.303-.497-1.77-.613-.467-.116-.925-.174-1.376-.174-.537 0-.948.125-1.235.375-.287.25-.43.576-.43.979 0 .25.058.468.174.654.116.186.3.366.553.54.253.174.852.486 1.797.938 1.25.598 2.107 1.197 2.57 1.797s.694 1.334.694 2.206zM78.254 125.958h-2.835v-11.012h-3.631v-2.36h10.097v2.36h-3.631v11.012zM86.778 120.827v5.131h-2.835v-13.372h3.896c1.817 0 3.161.331 4.033.992.872.662 1.308 1.667 1.308 3.014 0 .787-.216 1.486-.649 2.099s-1.046 1.093-1.838 1.44c2.012 3.006 3.323 4.948 3.933 5.826h-3.146l-3.192-5.131h-1.51zm0-2.305h.915c.896 0 1.558-.149 1.985-.448s.64-.769.64-1.409c0-.634-.218-1.085-.654-1.354-.436-.268-1.111-.402-2.026-.402h-.86v3.613zM104.494 125.958l-.97-3.183h-4.875l-.97 3.183h-3.055l4.719-13.426h3.466l4.738 13.426h-3.053zm-1.647-5.561c-.896-2.884-1.401-4.515-1.514-4.893-.113-.378-.193-.677-.242-.896-.201.78-.777 2.71-1.729 5.789h3.485zM118.469 116.757c0 1.439-.45 2.54-1.349 3.301-.899.763-2.178 1.144-3.837 1.144h-1.216v4.756h-2.835v-13.372h4.271c1.622 0 2.855.349 3.7 1.047.844.699 1.266 1.74 1.266 3.124zm-6.402 2.122h.933c.872 0 1.524-.172 1.957-.517.433-.345.649-.846.649-1.504 0-.665-.182-1.156-.544-1.473-.363-.317-.932-.476-1.706-.476h-1.29v3.97zM73.951 56.759c-1.983-.653-4.838-.759-8.565-.759h-13.386v20h14.424c2.502 0 4.259-.249 5.271-.437 1.783-.318 3.274-.93 4.472-1.676 1.198-.744 2.183-1.869 2.955-3.293.771-1.424 1.158-3.087 1.158-4.951 0-2.184-.559-3.98-1.677-5.59-1.117-1.611-2.668-2.642-4.652-3.294zM71.895 48.147c1.97-.586 3.455-1.646 4.452-3.003.999-1.357 1.498-3.103 1.498-5.154 0-1.943-.466-3.675-1.398-5.154-.932-1.478-2.263-2.481-3.992-3.027-1.732-.544-4.7-.809-8.906-.809h-11.549v18h12.507c3.435 0 5.897-.399 7.388-.853zM117 16.126c0-7.802-6.325-14.126-14.127-14.126h-77.746c-7.802 0-14.127 6.324-14.127 14.126v77.748c0 7.802 6.325 14.126 14.127 14.126h77.746c7.802 0 14.127-6.324 14.127-14.126v-77.748zm-30.43 57.144c-1.157 2.356-2.589 4.173-4.292 5.451-1.704 1.277-3.841 2.446-6.41 3.098-2.569.653-5.717 1.181-9.444 1.181h-22.424v-59h22.065c4.473 0 8.059.62 10.761 1.804 2.703 1.185 4.818 3.021 6.351 5.483 1.53 2.463 2.296 5.046 2.296 7.735 0 2.502-.68 4.861-2.036 7.071-1.358 2.21-3.408 3.995-6.15 5.352 3.54 1.038 6.263 2.811 8.166 5.313 1.903 2.503 2.855 5.458 2.855 8.866-.001 2.742-.579 5.291-1.738 7.646z"></path></svg>
+                            </div>
+                            <h3 class="icon_header">
+                                bootstrap
+                            </h3>
+                        </div>
+                        
+                        <div class="framework">
+                            <div class="icon_cont">
+                              <img class=" icon-2" width="70px" height="70px" src="data:image/png;base64,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" alt="dailog">
+                            </div>
+                            <h3 class="icon_header">
+                                Dailogflow
+                            </h3>
+                        </div>
+                        <div class="framework">
+                            <div class="icon_cont">
+                              <img class=" icon-2" width="70px" height="70px" src="data:image/png;base64,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" alt="google">
+                            </div>
+                            <h3 class="icon_header">
+                                Google
+                            </h3>
+                        </div>
+                        <div class="framework">
+                            <div class="icon_cont">
+                              <img class=" icon-2" width="70px" height="70px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTw6BaPUhJMAROwqU2rlBJwLYs2i0y6J5OSkA&usqp=CAU  " alt="google">
+                            </div>
+                            <h3 class="icon_header">
+                                HTML
+                            </h3>
+                        </div>
+                        <div class="framework">
+                            <div class="icon_cont">
+                              <img class=" icon-2" width="70px" height="70px" src="data:image/png;base64,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" alt="google">
+                            </div>
+                            <h3 class="icon_header">
+                                CSS
+                            </h3>
+                        </div>
+                        <div class="framework ">
+                            <div class="icon_cont ">
+                                <svg class="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" id="postgresql"><path d="M85.988 76.075c.632-5.262.443-6.034 4.362-5.182l.995.088c3.014.137 6.957-.485 9.272-1.561 4.986-2.313 7.942-6.177 3.026-5.162-11.215 2.313-11.986-1.483-11.986-1.483 11.843-17.571 16.794-39.875 12.521-45.335-11.654-14.892-31.828-7.85-32.166-7.667l-.108.021c-2.216-.461-4.695-.735-7.481-.78-5.075-.083-8.926 1.331-11.847 3.546 0 0-35.989-14.827-34.315 18.646.356 7.121 10.207 53.882 21.956 39.758 4.294-5.164 8.444-9.531 8.444-9.531 2.061 1.369 4.528 2.067 7.116 1.816l.2-.17c-.062.641-.035 1.268.081 2.01-3.027 3.383-2.137 3.977-8.189 5.222-6.122 1.262-2.525 3.508-.178 4.095 2.848.713 9.433 1.722 13.884-4.509l-.177.711c1.188.95 1.107 6.827 1.275 11.026.168 4.199.45 8.117 1.306 10.429.856 2.31 1.866 8.261 9.819 6.557 6.646-1.426 11.727-3.476 12.19-22.545"></path><path d="M71.208 102.77c-3.518 0-5.808-1.36-7.2-2.674-2.1-1.981-2.933-4.534-3.43-6.059l-.215-.637c-1.002-2.705-1.341-6.599-1.542-11.613-.03-.752-.052-1.529-.075-2.352-.017-.601-.038-1.355-.068-2.146-1.25.599-2.588 1.022-3.997 1.264-2.48.424-5.146.286-7.926-.409-1.961-.49-3.999-1.506-5.16-3.076-3.385 2.965-6.614 2.562-8.373 1.976-3.103-1.035-5.88-3.942-8.491-8.89-1.859-3.523-3.658-8.115-5.347-13.646-2.94-9.633-4.808-19.779-4.974-23.109-.522-10.427 2.284-17.883 8.34-22.16 9.555-6.749 24.03-2.781 29.307-.979 3.545-2.137 7.716-3.178 12.43-3.102 2.532.041 4.942.264 7.181.662 2.335-.734 6.949-1.788 12.23-1.723 9.73.116 17.793 3.908 23.316 10.966 3.941 5.036 1.993 15.61.48 21.466-2.127 8.235-5.856 16.996-10.436 24.622 1.244.009 3.045-.141 5.607-.669 5.054-1.044 6.531 1.666 6.932 2.879 1.607 4.867-5.378 8.544-7.557 9.555-2.792 1.297-7.343 2.086-11.071 1.915l-.163-.011-.979-.086-.097.816-.093.799c-.25 9.664-1.631 15.784-4.472 19.829-2.977 4.239-7.116 5.428-10.761 6.209-1.241.267-2.371.383-3.396.383zm-7.402-35.174c2.271 1.817 2.47 5.236 2.647 11.626.022.797.043 1.552.071 2.257.086 2.134.287 7.132 1.069 9.244.111.298.21.602.314.922.872 2.672 1.31 4.011 5.081 3.203 3.167-.678 4.794-1.287 6.068-3.101 1.852-2.638 2.888-7.941 3.078-15.767l3.852.094-3.826-.459.112-.955c.367-3.148.631-5.424 2.736-6.928 1.688-1.207 3.613-1.09 5.146-.814-1.684-1.271-2.15-2.765-2.274-3.377l-.321-1.582.902-1.34c5.2-7.716 9.489-17.199 11.767-26.018 2.34-9.062 1.626-13.875.913-14.785-9.446-12.071-25.829-7.088-27.539-6.521l-.29.156-1.45.271-.743-.154c-2.047-.425-4.321-.66-6.76-.7-3.831-.064-6.921.841-9.455 2.764l-1.758 1.333-2.041-.841c-4.358-1.782-17.162-5.365-23.918-.58-3.75 2.656-5.458 7.861-5.078 15.47.125 2.512 1.833 12.021 4.647 21.245 3.891 12.746 7.427 16.979 8.903 17.472.257.087.926-.433 1.591-1.231 4.326-5.203 8.44-9.54 8.613-9.723l2.231-2.347 2.697 1.792c1.087.723 2.286 1.132 3.518 1.209l6.433-5.486-.932 9.51c-.021.214-.031.504.053 1.044l.28 1.803-1.213 1.358-.14.157 3.534 1.632 1.482-1.853z"></path><path fill="#336791" d="M103.646 64.258c-11.216 2.313-11.987-1.484-11.987-1.484 11.842-17.571 16.792-39.876 12.52-45.335-11.655-14.892-31.829-7.849-32.166-7.666l-.109.019c-2.216-.459-4.695-.733-7.482-.778-5.075-.083-8.925 1.33-11.846 3.545 0 0-35.99-14.826-34.316 18.647.356 7.121 10.207 53.882 21.956 39.758 4.294-5.164 8.443-9.531 8.443-9.531 2.061 1.369 4.528 2.067 7.115 1.816l.201-.17c-.062.641-.034 1.268.08 2.01-3.026 3.383-2.138 3.977-8.188 5.222-6.123 1.262-2.526 3.508-.177 4.095 2.847.713 9.433 1.722 13.883-4.509l-.178.711c1.186.95 2.019 6.179 1.879 10.919s-.233 7.994.702 10.536c.935 2.541 1.866 8.261 9.82 6.557 6.646-1.425 10.09-5.116 10.57-11.272.34-4.377 1.109-3.73 1.158-7.644l.618-1.853c.711-5.934.113-7.848 4.208-6.957l.995.087c3.014.138 6.958-.485 9.273-1.561 4.986-2.314 7.943-6.177 3.028-5.162z"></path><path fill="#fff" d="M71.61 100.394c-6.631.001-8.731-5.25-9.591-7.397-1.257-3.146-1.529-15.358-1.249-25.373.02-.71.607-1.271 1.321-1.249.709.02 1.268.611 1.249 1.321-.323 11.551.136 22.018 1.066 24.346 1.453 3.632 3.656 6.809 9.887 5.475 5.915-1.269 8.13-3.512 9.116-9.23.758-4.389 2.254-16.874 2.438-19.338.053-.708.667-1.24 1.377-1.186.708.053 1.239.67 1.186 1.377-.192 2.564-1.682 15.026-2.469 19.584-1.165 6.755-4.176 9.819-11.11 11.306-1.177.251-2.248.364-3.221.364zM35.659 74.749c-.633.001-1.207-.115-1.704-.281-4.307-1.437-8.409-8.451-12.193-20.849-2.88-9.438-4.705-19.288-4.865-22.489-.475-9.49 1.97-16.205 7.265-19.957 10.476-7.423 28.1-.354 28.845-.05.657.269.972 1.019.703 1.676-.268.656-1.019.972-1.675.703v.001c-.17-.07-17.07-6.84-26.392-.229-4.528 3.211-6.607 9.175-6.18 17.729.135 2.696 1.84 12.311 4.757 21.867 3.378 11.067 7.223 18.052 10.548 19.16.521.175 2.109.704 4.381-2.026 4.272-5.14 8.197-9.242 8.236-9.283.491-.513 1.305-.529 1.817-.039.512.491.53 1.305.039 1.817-.039.04-3.904 4.081-8.116 9.148-1.995 2.398-3.908 3.102-5.466 3.102zM91.579 63.92c-.247 0-.497-.071-.717-.22-.589-.396-.745-1.195-.348-1.784 11.971-17.764 16.173-39.227 12.574-43.825-4.53-5.788-10.927-8.812-19.012-8.985-5.987-.13-10.746 1.399-11.523 1.666l-.195.079c-.782.246-1.382-.183-1.608-.684-.268-.593-.048-1.294.508-1.631l.346-.142-.017.005.018-.006c1.321-.483 6.152-1.933 12.137-1.864 8.947.094 16.337 3.545 21.371 9.977 2.382 3.044 2.387 10.057.015 19.24-2.418 9.362-6.968 19.425-12.482 27.607-.248.369-.654.567-1.067.567zM92.19 72.143c-2.044 0-3.876-.287-4.973-.945-1.128-.675-1.343-1.594-1.371-2.081-.308-5.404 2.674-6.345 4.195-6.774-.212-.32-.514-.697-.825-1.086-.887-1.108-2.101-2.626-3.037-4.896-.146-.354-.606-1.179-1.138-2.133-2.883-5.169-8.881-15.926-5.028-21.435 1.784-2.549 5.334-3.552 10.566-2.992-1.539-4.689-8.869-19.358-26.259-19.643-5.231-.088-9.521 1.521-12.744 4.775-7.217 7.289-6.955 20.477-6.952 20.608.019.71-.542 1.3-1.251 1.318-.71.022-1.3-.541-1.318-1.251-.016-.585-.286-14.424 7.695-22.484 3.735-3.772 8.651-5.634 14.612-5.537 11.128.183 18.289 5.839 22.338 10.553 4.412 5.136 6.576 10.802 6.754 12.692.133 1.406-.876 1.688-1.08 1.729l-.463.011c-5.135-.822-8.429-.252-9.791 1.695-2.931 4.188 2.743 14.363 5.166 18.709.619 1.108 1.065 1.909 1.269 2.404.796 1.93 1.834 3.227 2.668 4.269.733.917 1.369 1.711 1.597 2.645.105.185 1.603 2.399 10.488.565 2.227-.459 3.562-.066 3.97 1.168.803 2.429-3.702 5.261-6.196 6.42-2.238 1.039-5.805 1.696-8.892 1.696zm-3.781-3.238c.281.285 1.691.775 4.612.65 2.596-.112 5.335-.677 6.979-1.439 2.102-.976 3.504-2.067 4.231-2.812l-.404.074c-5.681 1.173-9.699 1.017-11.942-.465-.161-.105-.304-.215-.435-.323-.243.096-.468.159-.628.204-1.273.357-2.589.726-2.413 4.111zM51.712 76.084c-1.411 0-2.896-.191-4.413-.572-1.571-.393-4.221-1.576-4.18-3.519.045-2.181 3.216-2.835 4.411-3.081 4.312-.888 4.593-1.244 5.941-2.955.393-.499.882-1.12 1.548-1.865.99-1.107 2.072-1.669 3.216-1.669.796 0 1.45.271 1.881.449 1.376.57 2.524 1.948 2.996 3.598.426 1.488.223 2.92-.572 4.032-2.608 3.653-6.352 5.582-10.828 5.582zm-5.817-3.98c.388.299 1.164.699 2.027.916 1.314.328 2.588.495 3.79.495 3.662 0 6.601-1.517 8.737-4.506.445-.624.312-1.415.193-1.832-.25-.872-.87-1.665-1.509-1.931-.347-.144-.634-.254-.898-.254-.142 0-.573 0-1.3.813-.614.686-1.055 1.246-1.446 1.741-1.678 2.131-2.447 2.854-7.441 3.883-1.218.252-1.843.506-2.153.675zM55.777 66.176c-.624 0-1.171-.455-1.269-1.09-.033-.213-.054-.428-.064-.644-3.274-.062-6.432-1.466-8.829-3.968-3.031-3.163-4.411-7.545-3.785-12.022.68-4.862.426-9.154.289-11.46-.038-.641-.065-1.104-.063-1.425.002-.406.01-1.485 3.615-3.312 1.282-.65 3.853-1.784 6.661-2.075 4.654-.48 7.721 1.592 8.639 5.836 2.478 11.46.196 16.529-1.47 20.23-.311.688-.604 1.34-.838 1.97l-.207.557c-.88 2.36-1.641 4.399-1.407 5.923.107.702-.374 1.357-1.075 1.466l-.197.014zm-11.143-30.254l.051.918c.142 2.395.406 6.853-.31 11.969-.516 3.692.612 7.297 3.095 9.888 1.962 2.048 4.546 3.178 7.201 3.178h.055c.298-1.253.791-2.575 1.322-4l.206-.553c.265-.712.575-1.401.903-2.13 1.604-3.564 3.6-8 1.301-18.633-.456-2.105-1.56-3.324-3.375-3.726-3.728-.824-9.283 1.98-10.449 3.089zM52.39 35.377c-.064.454.833 1.667 2.001 1.829 1.167.163 2.166-.785 2.229-1.239.063-.455-.833-.955-2.002-1.118-1.167-.163-2.166.073-2.228.528zM54.66 37.654l-.328-.023c-.725-.101-1.458-.558-1.959-1.223-.176-.233-.464-.687-.407-1.091.082-.593.804-.947 1.933-.947.253 0 .515.019.78.055.616.086 1.189.264 1.612.5.733.41.787.866.754 1.103-.091.653-1.133 1.626-2.385 1.626zm-1.844-2.201c.037.28.73 1.205 1.634 1.33l.209.015c.834 0 1.458-.657 1.531-.872-.077-.146-.613-.511-1.631-.651-.225-.032-.448-.048-.661-.048-.652-.001-1.001.146-1.082.226zM87.937 34.45c.063.455-.832 1.668-2.001 1.83-1.168.162-2.167-.785-2.231-1.24-.062-.454.834-.955 2.002-1.117 1.168-.164 2.166.074 2.23.527zM85.667 36.512c-1.125 0-2.094-.875-2.174-1.442-.092-.681 1.029-1.199 2.185-1.359.254-.036.506-.054.749-.054.997 0 1.657.293 1.723.764.043.306-.191.777-.595 1.201-.266.28-.826.765-1.588.87l-.3.02zm.759-2.427c-.223 0-.455.017-.69.049-1.162.161-1.853.628-1.82.878.039.274.78 1.072 1.75 1.072l.239-.017c.634-.089 1.11-.502 1.337-.741.356-.375.498-.727.481-.848-.021-.157-.449-.393-1.297-.393zM89.62 60.538c-.246 0-.494-.07-.714-.217-.59-.396-.748-1.193-.353-1.783 2.736-4.087 2.235-8.256 1.751-12.286-.207-1.718-.42-3.493-.364-5.198.056-1.753.278-3.199.494-4.599.255-1.657.496-3.224.396-5.082-.039-.708.505-1.313 1.214-1.353.711-.038 1.314.506 1.353 1.215.114 2.124-.159 3.896-.423 5.611-.204 1.323-.415 2.691-.466 4.29-.049 1.509.144 3.112.348 4.808.516 4.287 1.099 9.146-2.167 14.023-.248.37-.655.571-1.069.571z"></path><path fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M13.924 17.211"></path><path d="M2.835 103.184c1.093-.182 2.522-.338 4.343-.338 2.235 0 3.874.52 4.914 1.456.962.832 1.534 2.106 1.534 3.667 0 1.586-.469 2.834-1.353 3.744-1.196 1.274-3.146 1.924-5.356 1.924-.676 0-1.3-.026-1.819-.156v7.021h-2.263v-17.318zm2.263 8.45c.494.13 1.118.182 1.872.182 2.729 0 4.394-1.326 4.394-3.744 0-2.314-1.638-3.432-4.134-3.432-.988 0-1.742.078-2.132.182v6.812zM27.328 114.104c0 4.654-3.225 6.683-6.267 6.683-3.406 0-6.032-2.496-6.032-6.475 0-4.212 2.756-6.682 6.24-6.682 3.615-.001 6.059 2.626 6.059 6.474zm-9.984.13c0 2.756 1.586 4.836 3.822 4.836 2.184 0 3.821-2.054 3.821-4.888 0-2.132-1.065-4.836-3.77-4.836s-3.873 2.496-3.873 4.888zM29.901 118.16c.676.442 1.872.91 3.016.91 1.664 0 2.444-.832 2.444-1.872 0-1.092-.649-1.69-2.34-2.314-2.262-.806-3.328-2.054-3.328-3.562 0-2.028 1.638-3.692 4.342-3.692 1.274 0 2.393.364 3.095.78l-.572 1.664c-.494-.312-1.404-.728-2.574-.728-1.352 0-2.106.78-2.106 1.716 0 1.04.755 1.508 2.393 2.132 2.184.832 3.302 1.924 3.302 3.796 0 2.21-1.716 3.77-4.706 3.77-1.378 0-2.652-.338-3.536-.858l.57-1.742zM43.266 104.301v3.614h3.275v1.742h-3.275v6.786c0 1.56.441 2.444 1.716 2.444.598 0 1.04-.078 1.326-.156l.104 1.716c-.441.182-1.144.312-2.027.312-1.066 0-1.925-.338-2.471-.962-.649-.676-.884-1.794-.884-3.276v-6.864h-1.95v-1.742h1.95v-3.016l2.236-.598zM59.802 107.916c-.053.91-.104 1.924-.104 3.458v7.306c0 2.886-.572 4.654-1.794 5.747-1.222 1.144-2.99 1.508-4.576 1.508-1.508 0-3.172-.364-4.187-1.04l.572-1.742c.832.52 2.132.988 3.692.988 2.34 0 4.056-1.222 4.056-4.394v-1.404h-.052c-.702 1.17-2.054 2.106-4.004 2.106-3.12 0-5.356-2.652-5.356-6.137 0-4.264 2.782-6.682 5.668-6.682 2.185 0 3.381 1.144 3.927 2.184h.052l.104-1.898h2.002zm-2.366 4.966c0-.39-.026-.728-.13-1.04-.416-1.326-1.534-2.418-3.198-2.418-2.185 0-3.744 1.846-3.744 4.758 0 2.47 1.248 4.524 3.718 4.524 1.404 0 2.678-.884 3.172-2.34.13-.39.183-.832.183-1.222v-2.262zM63.337 111.842c0-1.482-.026-2.756-.104-3.926h2.003l.077 2.47h.104c.572-1.69 1.95-2.756 3.484-2.756.26 0 .441.026.649.078v2.158c-.233-.052-.468-.078-.779-.078-1.612 0-2.757 1.222-3.068 2.938-.052.312-.104.676-.104 1.066v6.708h-2.262v-8.658zM72.854 114.624c.052 3.094 2.027 4.368 4.315 4.368 1.639 0 2.626-.286 3.484-.65l.39 1.638c-.806.364-2.184.78-4.186.78-3.874 0-6.188-2.548-6.188-6.344 0-3.796 2.236-6.787 5.902-6.787 4.108 0 5.2 3.614 5.2 5.928 0 .468-.052.832-.078 1.066h-8.839zm6.708-1.638c.025-1.456-.599-3.718-3.172-3.718-2.314 0-3.328 2.132-3.511 3.718h6.683z"></path><path fill="#336791" d="M84.371 117.744c1.014.624 2.496 1.144 4.056 1.144 2.314 0 3.666-1.222 3.666-2.99 0-1.638-.936-2.574-3.302-3.484-2.86-1.014-4.628-2.496-4.628-4.966 0-2.73 2.262-4.758 5.668-4.758 1.794 0 3.094.416 3.874.858l-.624 1.846c-.572-.312-1.742-.832-3.328-.832-2.392 0-3.302 1.43-3.302 2.626 0 1.638 1.065 2.444 3.484 3.38 2.964 1.145 4.472 2.574 4.472 5.148 0 2.704-2.002 5.044-6.136 5.044-1.69 0-3.536-.494-4.473-1.118l.573-1.898zM111.957 123.074c-2.366-.624-4.68-1.326-6.708-2.028-.364-.13-.728-.26-1.066-.26-4.16-.156-7.722-3.224-7.722-8.866 0-5.616 3.432-9.23 8.164-9.23 4.758 0 7.853 3.692 7.853 8.866 0 4.498-2.08 7.384-4.992 8.398v.104c1.742.442 3.64.858 5.122 1.118l-.651 1.898zm-1.872-11.414c0-3.51-1.819-7.125-5.538-7.125-3.822 0-5.694 3.536-5.668 7.333-.026 3.718 2.028 7.072 5.564 7.072 3.615 0 5.642-3.276 5.642-7.28zM115.414 102.976h2.263v15.626h7.488v1.898h-9.751v-17.524z"></path></svg>
+                            </div>
+                            <h3 class="icon_header">
+                                PostgreSQL
+                            </h3>
+                        </div>
+                      
+                    </div>
+                </div>
+               
+            </div>
+        </section>
+        <section id="about" style="height:min-content" class="explained_cont">
+            <div class="explain-cont">
+                <div class="header_explain">
+                    <h2 style="font-size: xx-large;"><span class="darkspan">Project</span>   <span class="orangespan"> Explained</span></h2>
+                </div>
+                <div class="cont_explain">
+                    <div class="content_explained">
+                        <div class="content_header">
+                            <h3><span class="darkspan">Setting up</span> <span class="orangespan"> Django</span> </h3>
+                        </div>
+                        <ul class="contentt_explained">
+                            <li>
+                                  Open your command prompt or terminal and navigate to your preferred directory where you want to create your project.
+                            </li>
+                            <li>
+                                Create a new virtual environment by running the following command:  <a>`python -m venv env`</a>
+                            </li>
+                            <li>
+                                
+                                Activate the virtual environment by running the following command: <a href=""> `source env/bin/activate` (for Mac/Linux) or `env\\Scripts\\activate` <span class="darkspan">(for Windows)</span></a>.
+                            </li>
+                            <li> Install Django by running the following command: <a href=""> `pip install django`</a>.
+                            </li>
+                            <li>  Create a new Django project by running the following command: <a href="#">`django-admin startproject {project_name}`</a>.
+                            </li>
+                            <li>  Navigate into the newly created project directory by running the following command: <a href="">`cd {project_name}`</a>.
+                            </li>
+                            <li>  Create a new Django app by running the following command: <a href=""> `python manage.py startapp {app_name}`</a>.
+                            </li>
+                            <li>
+                               <h4> Create HTML Templates</h4>
+
+--Create a directory called "templates" in your Django app directory (if it doesn't exist). <br>
+--Inside the "templates" directory, create an HTML file for each page or component you want to include.<br>
+--For example, you can create a file called "home.html" for the home page.<br>
+--Place your HTML code inside these template files.<br>
+                            </li>
+                            <li>
+                                <h4>Define URL Patterns</h4>
+                                
+                                --Open the "urls.py" file in your Django app directory. <br>
+                                --Import the views module that contains your view functions.<br>
+                                --Add a URL pattern that maps a URL path to a view function.<br>
+                                --Specify the name of the HTML template to render for that URL pattern.<br>
+                                --For example, you can add a URL pattern like this: path('', views.home, name='home').<br>
+                            </li>
+
+<li>
+    <h4>Create View Functions</h4>
+    --Open the <a>"views.py"</a> file in your Django app directory.<br>
+    --Define a view function for each URL pattern you added.<br>
+    --Each view function takes a request parameter and returns an HttpResponse object.<br>
+    --Inside the view function, use the render function to render the HTML template.<br>
+    --For example, a view function for the home page could look like this:<br>
+    <a href=''>&nbsp;&nbsp; &nbsp;&nbsp;from django.shortcuts import render <br>
+    
+        &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;def home(request):<br>
+        &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;   return render(request, 'home.html')<br>
+        </a>
+</li>
+<li>
+    <h4>Link CSS Files</h4>
+   
+--Create a directory called <a href=""> "static"</a> in your Django app directory (if it doesn't exist).<br>
+--Inside the <a href=""> "static"</a> directory, create another directory with the same name as your app.<br>
+--Place your CSS files inside this app-specific <a href=""> "static"</a> directory.<br>
+--In your HTML templates, include the CSS files using the <a> static </a> template tag.<br>
+--For example, you can include a CSS file like this: <a><'link' rel="stylesheet" href="-static 'appname/style.css' -"></a>.<br>
+--Make sure to load the <a> static  </a> template tag at the beginning of your template file: <a> load static </a>.<br>
+</li>
+
+<li>
+    
+    <h4>Collect Static Files (for production)</h4>
+    
+    --If you are running your Django project in production mode, you need to collect static files.<br>
+    --Run the command python manage.py collectstatic in your project's root directory.<br>
+    --This command will gather all static files from your apps and copy them to a single location.<br>
+</li>
+<li>
+    <h4>Start the Django Development Server</h4>
+
+    --Run the command python manage.py runserver in your project's root directory.<br>
+    --Open a web browser and visit the URL corresponding to your Django app and the defined URL pattern.<br>
+    --You should see the rendered HTML with the linked CSS styles.<br>
+</li>
+   
+                        </ul>
+                    </div>
+                    <div class="content_explained">
+                        <div class="content_header">
+                            <h3><span class="darkspan">Integrating Django </span> <span class="orangespan">  with PostgreSQL</span> </h3>
+                        </div>
+                        <ul class="contentt_explained">
+                            <article>To connect Django to PostgreSQL, follow these steps:</article>
+                            <br>
+                            <li>
+                                Install the PostgreSQL database server and client on your system.
+                            </li>
+                            <li>
+                               Create a new database in PostgreSQL using the psql command-line interface or a GUI tool like <a href="">pgAdmin</a>.
+                            </li>
+                            <li>
+                                
+                               Install the <a href="">psycopg2</a> package for Python, which is the PostgreSQL adapter for Python.
+                            </li>
+                            <li> Update your Django project's <a href="">[settings.py](http://settings.py/)</a> file to include the database configuration settings. Specifically, you'll need to update the DATABASES dictionary with the appropriate values for the <a href="">NAME, USER, PASSWORD, HOST, and PORT</a> keys. For example:
+                                <article>
+                                    <span class="orangespan">
+                                        ```<br>
+                                        DATABASES = {<br>
+                                            &nbsp;&nbsp;'default': {<br>
+                                                &nbsp;&nbsp; &nbsp;&nbsp;'ENGINE': 'django.db.backends.postgresql',<br>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'NAME': 'mydatabase',<br>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'USER': 'mydatabaseuser',<br>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'PASSWORD': 'mypassword',<br>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'HOST': 'localhost',<br>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'PORT': '5432',<br>
+                                                &nbsp;&nbsp;}<br>
+                                                &nbsp;}<br>
+                                        
+                                        ```
+                                    </span>
+                                </article>
+                            </li>
+                            <li>  Run the Django migrations to create the necessary database tables and schema using the command <a href="">python manage.py migrate</a>.
+                            </li>
+                            <li>  Test the database connection by running some database queries using Django's built-in ORM or a database client like pgAdmin.
+                            </li>
+                            
+                            <br>
+                                
+                            <article> By following these steps, you can connect Django to PostgreSQL and start using the power of a relational database in your Django project.</article>
+                        </ul>
+                    </div>
+                    <div class="content_explained">
+                        <div class="content_header">
+                            <h3><span class="darkspan">Setting up</span> <span class="orangespan">  authentication</span> </h3>
+                        </div>
+
+                        <ul class="contentt_explained">
+                            <article>
+
+                                To set up <a href="">Authentication with Django</a>, you can use Django's built-in authentication system or a third-party authentication provider like <a href="">OAuth</a>. With Django's authentication system, you can create user accounts, manage user permissions, and authenticate users with various methods <span class="darkspan">(e.g., username/password, social logins)</span>. To use OAuth, you'll need to register your application with the provider and obtain API credentials. You can then use a library like <a href="">`django-allauth`</a> to handle the authentication flow in your Django app. In either case, make sure to securely store any sensitive data like passwords or <a href="">API keys</a>.
+                                <br>
+                                <br>
+                                To provide more detail on setting up authentication with Django, you can follow the following steps:</article>
+                            <li>
+                               Create a new Django app by running the following command: <a href="">`python manage.py startapp {app_name}`</a>.
+                            </li>
+                            <li>
+                               Define your user model by extending Django's built-in User model or creating a custom user model.
+                            </li>
+                            <li>
+                                
+                               Configure Django's authentication backend to use your custom user model or the default User model.
+                            </li>
+                            <li> Create user login and registration views that use Django's authentication system or a third-party provider like <a href="">OAuth</a>.
+                            </li>
+                            <li> Implement user permissions and access control using Django's built-in permission system.
+                            </li>
+                            <li> Use Django's built-in middleware framework to restrict access to certain views or resources based on user authentication and permissions.
+                            </li>
+                            <li> Enable HTTPS for secure communication between your app and the authentication provider or user browser.
+                            </li>
+                            <br>
+                                
+                            <article>By following these steps, you can set up a robust authentication system for your Django app, which is critical for securing user data and preventing unauthorized access.</article>
+                        </ul>
+                    </div>
+                    <div class="content_explained">
+                        <div class="content_header">
+                            <h3><span class="darkspan">Rundown of the</span> <span class="orangespan">  Views.py File</span> </h3>
+                        </div>
+                        <ul class="contentt_explained">
+                            <li>
+                                <h4 href="">register(request)</h4>  This function handles the registration process. It checks if the request method is POST and retrieves the submitted form data such as first name, last name, username, email, password, and confirm password. It performs various validations, such as checking if the password meets the specified criteria and if the username or email already exists. If all validations pass, a new User object is created using the <a href="">`create_user`</a> method, and a UserProfile object is also created. The UserProfile is associated with the User and stores additional information like email verification status. Finally, the user is redirected to the login page.
+                            </li>
+                            <li>
+                               <h4 href="">login(request)</h4> This function handles the user login process. It checks if the request method is POST and retrieves the submitted username and password. It uses the <a href="">authenticate</a>  function from Django's authentication system to verify the credentials. If the user is authenticated and their email has been verified (based on the UserProfile), they are logged in using the <a href="">login</a>  method. Otherwise, they are redirected to the registration verification page or shown an error message.
+                            </li>
+                            <li>
+                                
+                              <h4 href="">logout(request)</h4> This function logs out the currently authenticated user using the <a href="">logout</a>  method from Django's authentication system. After logging out, the user is redirected to the homepage.
+                            </li>
+                            <li> <h4 href="">registered(request)</h4> This function handles the account verification process after registration. If the request method is POST, it retrieves the entered OTP (One-Time Password) and compares it with the generated OTP using the <a href="">`generateOtp`</a>  method from the <a href="">generator</a>  object. If the OTPs match, the UserProfile associated with the user is retrieved, and the <a href="">email_verify</a> field is set to True to indicate successful verification. The changes are saved, and the user is redirected to the homepage. If the OTP is invalid, an error message is displayed.
+                            </li>
+                            <li>  <h4 href="">registereder(request)</h4> This function is used for requesting and generating an OTP during the registration verification process. If the request method is POST, an OTP is generated using the <a href="">`generate`</a> method from the <a>`generator`</a> object. The OTP is then sent via email (implementation not shown). Finally, the user is redirected to the <a href="">registered view.</a>  If the request method is not POST, it displays any error message stored in the <a href="">storeUser.Error</a>   variable.
+                            </li>
+                            <br>
+                                
+                            <article>It's important to note that the code assumes the existence of related models, such as <a href="">`UserProfile`</a>, and imports the necessary modules and classes. The <a href="">`storeUser`</a> object is used to store temporary data related to the registration process.</article>
+                        </ul>
+                    </div>
+                    <div class="content_explained">
+                        <div class="content_header">
+                            <h3><span class="darkspan">OPT</span> <span class="orangespan"> Creation Class</span> </h3>
+                        </div>
+                        <ul class="contentt_explained">
+                           <article> This code defines two classes: <a href="">`GenerateOpt`</a> and <a href="">`StoreUser`</a>.</article>
+                            <li>
+                                <h4>GenerateOpt class</h4>
+                                - The <a href="">`__init__`</a> method initializes the class attributes. It sets up the <a href="">`corpus`</a>, which is a string containing the characters used to generate the OTP (One-Time Password). It also initializes **`generateOtp`** as an empty string and calculates the length of the <a href="">`corpus`</a>. <br>
+                                - The <a href="">`generate`</a> method generates a random 6-character OTP using the characters from the <a href="">`corpus`</a>. It also sends an email containing the OTP to the user's email address. The email is created using the **`EmailMessage`** class from the **`email.message`** module. The SMTP protocol is used to connect to a mail server (in this case, Gmail) and send the email using the provided email credentials.<br>
+                                - The <a href="">`validate`</a> method sends an email to the user to inform them that their account has been successfully verified. The email contains the user's account details. The process of sending the email is similar to the <a href="">`generate`</a> method.<br>
+                            </li>
+                            <li>
+<h4> StoreUser class</h4>
+- The <a href="">`__init__`</a> method initializes the class attributes: <a href="">`user`</a>, <a href="">`Error`</a>, <a href="">`EmailValid`</a>, and <a href="">`email`</a>. These attributes store temporary data related to the user during the registration and verification process.<br>
+- The <a href="">`store`</a> method returns the value of the <a href="">`user`</a> attribute.<br>
+                            </li>
+                            <br>
+
+                            <article>The code imports the necessary modules ( <a href="">`Password`</a> from <a href="">`.stuff.ygs`</a> and <a href="">`EmailMessage`</a> from <a href="">`email.message`</a> ) and defines two classes to handle OTP generation and email sending functionality.</article>
+                        </ul>
+                    </div>
+                    <div class="content_explained">
+                        <div class="content_header">
+                            <h3><span class="darkspan">Setting up</span> <span class="orangespan">Dailogflow</span> </h3>
+                        </div>
+                        <ul class="contentt_explained">
+                           <article> To set up Dialogflow, follow these steps:</article>
+                            <li>Create a new Dialogflow agent by logging in to the Dialogflow console and clicking on the 'Create Agent' button. Give your agent a name and select the default language and time zone for your agent.
+                            </li>
+                            <li> Enable the Knowledge Connectors feature in your agent settings. This will allow you to connect your agent to external knowledge sources like a Knowledge Graph API.
+                            </li>
+                            <li> Create an intent in your agent that handles user queries related to your knowledge base. You can define training phrases and responses for this intent to help your agent understand and respond to user queries.
+                            </li>
+                            <li> Configure the Knowledge Connectors feature to connect your agent to your knowledge source (e.g., Knowledge Graph API). You'll need to provide authentication credentials and a query to retrieve information from your knowledge source.
+                            </li>
+                            <li> Test your agent by sending queries to it and evaluating the responses. You can use the Dialogflow console or a client library to communicate with your agent programmatically.
+                            </li>
+                            <br>
+                            <article>By following these steps, you can set up a Dialogflow agent that leverages external knowledge sources to provide intelligent responses to user queries.</article>
+                        </ul>
+                    </div>
+                    <div class="content_explained">
+                        <div class="content_header">
+                            <h3><span class="darkspan">Google Knowledge</span> <span class="orangespan">Search API File</span> </h3>
+                        </div>
+                        <ul class="contentt_explained">
+                           <article> This code defines a Django view that handles two functionalities:</article>
+                            <li><h4>index view</h4>
+                                - This view checks if the user is authenticated. If the user is authenticated, it renders the <a href="">'index.html'</a> template. If not, it redirects the user to the home page. <br>
+                                - It is assumed that the <a href="">'index.html'</a> template contains the appropriate content to be displayed when the user is authenticated.<br>
+                            </li>
+                            <li><h4> process_input view</h4>
+                                - This view handles a POST request that contains an <a href="">'inputData'</a> parameter. It performs a search using the <a href="">Google Knowledge Graph Search API </a> to retrieve information related to the <a href="">`input data`</a>.<br>
+                                - The input data is used as a query parameter for the API request. The response is processed to extract relevant information.<br>
+                                - If successful results are obtained, the detailed description of the top three search results is extracted and concatenated into the <a href="">'results'</a> string. This string is then returned as a JSON response.<br>
+                                - If no results are found or if there is an error, an appropriate error message is returned as a JSON response.<br>
+                                - If the request method is not POST or there is an error, the view redirects the user to the home page with an HTTP response indicating a bad request.<br>
+                            </li>
+                            <br>
+                            <article>The code imports necessary modules and libraries (<a href="">`render`</a>, <a href="">`redirect`</a>, <a href="">`JsonResponse`</a>, <a href="">`HttpResponseBadRequest`</a>, <a href="">`requests`</a>, and <a href="">`TextBlob`</a> ). It also sets up the API URL and API key for the Google Knowledge Graph Search API.</article>
+                        </ul>
+                    </div>
+                    <div class="content_explained">
+                        <div class="content_header">
+                            <h3><span class="darkspan">JavaScript </span> <span class="orangespan">File</span> </h3>
+                        </div>
+                        <ul class="contentt_explained">
+                            <article>  Overall, this code sets up an interactive chatbot interface that makes AJAX requests to a server-side endpoint for processing user input and updating the chat messages in real-time.</article>
+<li>
+    It includes the jQuery library by adding the script tag <a href="">'<'script' src="https://code.jquery.com/jquery-3.6.0.min.js"></'script'>'</a>.
+                        </li>
+                        <li>
+                            It defines a function that executes when the document is ready <a href=""><code>($(document).ready(function() {...})</code></a>.
+                        </li>
+                        <li>
+                            Inside the function, it attaches a click event handler to the element with the id <a href="">"chatbots"</a> <a href="">($('#chatbots').click((e) => {...})</a>.
+                        </li>
+                        <li>
+                            When a tag inside the <a href="">"chatbots"</a> element is clicked, it retrieves the text content of the clicked tag <a href="">(clickedTag = e.target.textContent)</a>.
+                        </li>
+                        <li>
+                            It removes the <a href="">"active"</a> class from any element that has it <a href="">($('.active').removeClass('active'))</a>.
+                        </li>
+                        <li>
+                            It adds the <a href=""> "active"</a> class to the clicked tag <a href="">(clickedTagActive = e.target.classList; clickedTagActive.add('active'))</a>.
+                        </li>
+                        <li>
+                            Depending on the value of the clicked tag, it updates the HTML content of elements with specific ids accordingly.
+                        </li>
+                        <li>
+                            It intercepts the form submission event for the form with the id <a href="">"myForm"</a> <a href="">($('#myForm').submit(function(event) {...})</a>.
+                        </li>
+                        <li>
+                            It prevents the default form submission <a href="">(event.preventDefault())</a>.
+                        </li>
+                        <li>
+                            It retrieves the value of the input field with the id <a href="">"inputField"</a> <a href="">(var input_data = $('#inputField').val())</a>.
+                        </li>
+                        <li>
+                            It sends an AJAX request to the server.
+                        </li>
+                        <li>
+                            It specifies the URL for the request <a href="">(url: "{% url 'process_input' %}")</a> and the HTTP method <a href="">(type: 'POST')</a>.
+                        </li>
+                        <li>
+                            It includes the CSRF token in the request headers for CSRF protection <a href="">(headers: {'X-CSRFToken': '{ csrf_token }'}).</a>
+                        </li>
+                        <li>
+                            It sends the input data as the request payload <a href="">(data: {'inputData': input_data})</a>.
+                        </li>
+                        <li>
+                            It handles the success and error responses from the server.
+                        </li>
+                        <li>
+In the success callback function, it processes the response by updating the HTML content of specific elements.
+                        </li>
+                        <li>
+                            In the error callback function, it logs the error to the console.
+                        </li>
+                        <li>
+                            This code sets up a JavaScript functionality for a chatbot interface. Here's an explanation of what the code does:
+                        </li>
+                        <li>
+                            The code contains additional HTML markup for the chatbot interface, including input fields, buttons, and chat message containers.
+                        </li>
+                        <br>
+                            <article>The code imports necessary modules and libraries (<a href="">`render`</a>, <a href="">`redirect`</a>, <a href="">`JsonResponse`</a>, <a href="">`HttpResponseBadRequest`</a>, <a href="">`requests`</a>, and <a href="">`TextBlob`</a> ). It also sets up the API URL and API key for the Google Knowledge Graph Search API.</article>
+                        </ul>
+                    </div>
+                   
+                </div>
+            </div>
+        </section>
+</body>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function() {
+    $('#chatbots').click((e) => {
+        clickedTag = e.target.textContent
+        $('.active').removeClass('active')
+        clickedTagActive = e.target.classList 
+        clickedTagActive.add('active')
+        if (clickedTag == 'dialogflow') {
+            $('#chatbot-text-header').html(`Ask any&nbsp;<span class="orangespan">Javascript</span>&nbsp;question`)
+            $('#chatbott').html(`<iframe id="chati active" class="chat " width="100%" height="100%" allow="microphone;" src="https://console.dialogflow.com/api-client/demo/embedded/3b5ed0d4-864e-42c1-bf17-f9bfb48d1538"></iframe>`);
+        }else if(clickedTag == 'Jokes'){
+            $('#chatbot-text-header').html(`Ask to tell&nbsp;<span class="orangespan">a Joke</span>&nbsp;`)
+            $('#chatbott').html(`<iframe
+            allow="microphone;"
+            id="chati active" class="chat " width="100%" height="100%"
+            src="https://console.dialogflow.com/api-client/demo/embedded/8f8de106-dbcb-40b2-83ca-3b2487f77ec9">
+        </iframe>`);
+
+        } 
+        else {
+            $('#chatbot-text-header').html(`Ask about any&nbsp;<span class="orangespan">Topic</span>&nbsp;`)
+            $('#chatbott').html(`
+                <div id="chati active" class="interface">
+                    <div class="chat_header">
+                          Chatbot with <span class="orangespan">&nbsp; Knowledge &nbsp;</span>  Graph
+                    </div>
+                    <div id="chat_body" class="chat_body">
+                        <div class="user"><div id="chatRes" class="chatRes">hi</div></div>
+                        <div class="user  aires"><div id="chatIpt" class="chatIpt">ho</div></div>
+                    </div>
+                    <div class="chat_form">
+                       <form class="chat_Form" id="myForm">
+                             <input class="chat_input" type="text" id="inputField" name="inputField">
+                             <button id="chat_send_btn" class="chat_send_btn" type="submit">
+                                <span class="material-symbols-outlined">
+                                    send
+                                </span>
+                             </button>
+                       </form>
+                    </div>
+                </div>
+            `);
+        }
+    });
+    
+    // Intercept the form submission
+    $('#myForm').submit(function(event) {
+        event.preventDefault(); // Prevent the default form submission
+        $('#chat_send_btn').html = `<div class="loading">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>`
+          // Get the input field value
+          var input_data = $('#inputField').val();
+        
+        // Send an AJAX request
+        $.ajax({
+            url: "{% url 'process_input' %}", // Replace with the correct URL
+            type: 'POST',
+            headers: {
+                'X-CSRFToken': '{{ csrf_token }}' // Include the CSRF token
+            },
+            data: {
+                'inputData': input_data
+            },
+            success: function(response) {
+                // Process the response
+                var message = response.message == 'undefined' ? 'input_data' : response.message;
+
+                var respond = response.userInput
+                
+                chatRes = `
+                <div class="user"><div id="chatRes" class="chatRes">${message}</div></div>`
+                userInt = `
+                <div class="user aires"><div id="chatIpt" class="chatIpt">${input_data}</div></div>
+                `
+                $('#chat_body').append(userInt)
+                $('#chat_body').append(chatRes)
+                // Update the HTML with the response
+                console.log(message);
+                $('#chat_send_btn').html = `   <span   class="material-symbols-outlined">
+                    send
+                    </span>`
+                },
+                error: function(xhr, status, error) {
+                $('#chat_send_btn').html = `   <span   class="material-symbols-outlined">
+                    send
+                    </span>`
+                console.log(error);
+            }
+        });
+    });
+});
+</script>
+
+</html>
