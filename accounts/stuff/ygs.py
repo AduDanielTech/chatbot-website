@@ -1,6 +1,6 @@
 class Password:
     def __init__(self):
-        self.word = 'tvznwwfsafmbsugg'
+        self.word = ''
 
     def passRet(self):
         return self.word
